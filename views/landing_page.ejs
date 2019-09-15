@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <!-- List of variables accessible here:
+        title - title of the page (displayed on browser tab)
+    -->
+    <meta name="description" content="Landing Page">
+    <meta name="author" content="Austin Cinker">
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/landingstyle.css' />
+    
+  </head>
+  <body>
+    <div class="header" id="EGheader">
+        <div class="nav">
+            <a href="../">Landing Page</a>
+            <a href="../about_page">About</a>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="block">
+            <h1>Welcome to Event Genius!</h1>
+            <p>Event genius is a web-based event planning application 
+                built to make event planning easier for everyone involved!
+            </p>
+            <p>Every event planner, vendor, venue, photographer, and many 
+                more will be able to connect with those involved in their 
+                events and have access to all of the information they need!
+            </p>
+        </div>
+        
+        <br><span class="custom-br"></span><br> <!-- custom span for custom ____ -->
+
+        <div class="block">
+            <h3>If you would like to sign up to get development updates, enter your information below!</h3>
+            
+            <form action="/signup" method="post" class="signup">
+                <table>
+                    <tr>
+                        <td>First Name</td>
+                        <td><input type="text" required autofocus name="fname" placeholder="first name..."></td>
+                    </tr>
+                    <tr>
+                        <td>Last Name</td>
+                        <td><input type="text" required name="lname" placeholder="last name..."></td>
+                    </tr>
+                    <tr>
+                        <td>Email</td>
+                        <td><input type="email" required name="email" placeholder="email..."></td>
+                    </tr>
+                </table>
+                <p class="note">*note: your information will NOT be used for marketing purposes, it will ONLY be stored in our secure database, 
+                        and you will be notified of development updates. You will be able to unsubscribe at any time!</p>
+                <a href="/thank_you"><button class="button" type="submit">Submit</button></a>
+            </form>
+        </div>
+    </div>
+  </body>
+</html>
