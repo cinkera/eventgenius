@@ -1,13 +1,19 @@
+/* store variables here */
+:root {
+  --main-bg-color: rgb(153, 51, 204); /*#9933cc*/
+  --main-fg-color: white; /*#ffffff*/
+}
+
 html {
   min-height: 100%;
   padding: 5px;
   font-size: large;
 }
 body {
-  background: rgb(91, 14, 192); /* Old browsers 
-	background: -moz-linear-gradient(top, rgb(196, 174, 233) 50%, #9575CD 100%);  FF3.6-15 
-	background: -webkit-linear-gradient(top, rgb(196, 174, 233) 50%,#9575CD 100%);  Chrome10-25,Safari5.1-6 
-	background: linear-gradient(to bottom, rgb(196, 174, 233) 50%,#9575CD 100%);  W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */ 
+  background: var(--main-bg-color); /* Old browsers
+	background: -moz-linear-gradient(top, rgb(196, 174, 233) 50%, #9575CD 100%);  FF3.6-15
+	background: -webkit-linear-gradient(top, rgb(196, 174, 233) 50%,#9575CD 100%);  Chrome10-25,Safari5.1-6
+	background: linear-gradient(to bottom, rgb(196, 174, 233) 50%,#9575CD 100%);  W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   font-family:'Roboto',sans-serif;
 	display: flex;
 	flex-direction: column;
@@ -16,26 +22,26 @@ body {
 }
 
 .header {
-  height:60px; 
+  height:60px;
 	display: flex;
 	flex-direction: row;
   justify-content: left;
-  
+
 	order:1;
 	flex:1 0 auto;
 }
 
 .nav {
-  height:50x; 
+  height:50x;
   display: inline-block;
   position: fixed;
   left:0;
   top: 0;
   width: 100%;
-  background-color: rgb(91, 14, 192);
+  background-color: var(--main-bg-color);
 }
 .nav a {
-  color: white;
+  color: var(--main-fg-color);
   float: left;
   display: block;
   text-align: center;
@@ -44,15 +50,15 @@ body {
   font-size: 1.5em;
 }
 .nav a:hover {
-  color:white;
+  color: var(--main-fg-color);
   border-bottom: 1px solid white;
 }
 
 .custom-br {
-	display:block;
+	display: block;
 	width: 100%;
 	height: 2px;
-	background: white; 
+	background: var(--main-fg-color); 
   border-radius: 0.4em;
   margin: 10px auto;
 }
@@ -62,7 +68,7 @@ body {
   order: 2;
   margin: auto;
   font-size: 1.3em;
-  color:white;
+  color: var(--main-fg-color);
 }
 
 .block {
@@ -72,13 +78,13 @@ body {
 }
 
 .largecenter {
-  color: white;
+  color: var(--main-fg-color);
   font-size: 2em;
   margin: auto;
 }
 
 .signup {
-  border:2px solid white;
+  border:2px solid var(--main-fg-color);
   border-radius: 0.4em;
   padding: 10px;
   width: 35%;
@@ -101,22 +107,22 @@ input {
 }
 
 .button {
-  border:1px solid white;
+  border:1px solid var(--main-fg-color);
   color: white;
   height: 40px;
   width: 100px;
   border-radius:0.4em;
-  background-color: rgb(91, 14, 192);
+  background-color: var(--main-bg-color);
 }
 .button:hover {
-  background-color: rgb(91, 14, 192);
-  color:white;
+  background-color: var(--main-bg-color);
+  color: var(--main-fg-color);
   font-size: 1.1em;
   border: 2px solid white;
   border-radius:0.4em;
 }
 
-/* The sticky class is added to the header with 
+/* The sticky class is added to the header with
 JS when it reaches its scroll position */
 .sticky {
   position: fixed;
@@ -124,12 +130,10 @@ JS when it reaches its scroll position */
   width: 100%
 }
 
-/* Add some top padding to the page content to 
+/* Add some top padding to the page content to
 prevent sudden quick movement (as the header gets a
- new position at the top of the page (position:fixed 
+ new position at the top of the page (position:fixed
  and top:0) */
 .sticky + .content {
   padding-top: 102px;
 }
-
-
