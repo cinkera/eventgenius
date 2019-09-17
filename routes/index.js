@@ -29,7 +29,7 @@ router.get('/thank_you', function(req, res, next) {
 });
 
 
-/* POST signup information, route to thank you page. */
+/* POST signup information, route to thank you page, send thank you email. */
 router.post('/signup', function(req, res, next) {
   var Ucollection = db.get('testusercollection');
   console.log("Signup info: " + JSON.stringify(req.body));

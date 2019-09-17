@@ -6,8 +6,6 @@ var logger = require('morgan');
 var monk = require('monk');
 var db = monk('mongodb://127.0.0.1:27017/eventgenius', { useUnifiedTopology: true });
 
-//const sesClient = require('../ses-client');
-
 //Bind connection to error event (to get notification of connection errors)
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 

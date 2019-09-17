@@ -85,7 +85,7 @@ table {
   border:2px solid white;
   border-radius: 0.4em;
   padding: 10px;
-  min-width: 250px;
+  min-width: 300px;
   width: 35%;
   text-align: center;
   margin: auto;
@@ -95,7 +95,20 @@ table {
   font-size: .7em;
 }
 
-h1, h3 {
+.fakeh {
+  text-align: center;
+}
+
+#a1 {
+  color:white;
+  text-decoration: none;
+}
+#a1:hover {
+  color: black;
+  font-weight:bold;
+}
+
+h1, h3, h4 {
   text-align: center;
 }
 
