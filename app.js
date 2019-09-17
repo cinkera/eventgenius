@@ -3,18 +3,10 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-/*
-var mongoose = require("mongoose");
-mongoose.Promise = global.Promise;
-mongoose.connect("mongodb://127.0.0.1:27017/eventgenius", { useNewUrlParser: true }, { useUnifiedTopology: true });
-*/
 var monk = require('monk');
 var db = monk('mongodb://127.0.0.1:27017/eventgenius', { useUnifiedTopology: true });
 
-/*
-//Get the default connection
-var db = mongoose.connection;
-*/
+//const sesClient = require('../ses-client');
 
 //Bind connection to error event (to get notification of connection errors)
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));

@@ -1,8 +1,15 @@
 var express = require('express');
 var router = express.Router();
 
+// Load the SDK for JavaScript
+var AWS = require('aws-sdk');
+// Set the Region 
+AWS.config.update({region: 'us-east-1'});
+
 var monk = require('monk');
 var db = monk('mongodb://127.0.0.1:27017/eventgenius', { useUnifiedTopology: true });
+const sesClient = require('../ses-client');
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('landing_page', { title: 'Event Genius Landing Page' });
@@ -14,9 +21,13 @@ router.get('/about_page', function(req, res, next) {
 });
 
 /* GET thank you page. */
-router.get('/thank_you', function(req, res, next) {
+router.get('/thank_you', function(req, res, next) {  
+  var fName = req.body.fname;
+  var lname = req.body.lname;
+  var email = req.body.email;
   res.render('thank_you', { title: 'Thank you!' });
 });
+
 
 /* POST signup information, route to thank you page. */
 router.post('/signup', function(req, res, next) {
@@ -38,7 +49,7 @@ router.post('/signup', function(req, res, next) {
       // if docs = "", name exists in DB already. Don't create account
       if(docs != "") {
               console.log("this name DOES exist in the db");
-              
+
               // --------------------------------- CREATE ERROR PAGE TO SEND
               var nameinDBerror = "This email is already on our mailing list!";
               res.send("This email is already on our mailing list!");
@@ -56,7 +67,8 @@ router.post('/signup', function(req, res, next) {
                   res.send("There was a problem adding the information to the database.");
               }
               else {
-                  // And forward to success page
+                  // And forward to success page and send thank you email
+                  sesClient.sendEmail(userEmail, "Thank you for signing up with Event Genius!", "We will send you development updates, and keep you in the loop for when Event Genius will be ready! \nFeel free to send your user input on what you would like to see to eventgeniusnotifier@gmail.com with the subject User Input.");
                   res.render("thank_you", {fname: fName, lname: lName, email: userEmail});
               }
           });

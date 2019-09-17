@@ -13,6 +13,7 @@
     
   </head>
   <body>
+    <script src="/javascripts/email.js" > </script>
     <div class="header" id="EGheader">
         <div class="nav">
             <a href="../">Landing Page</a>
@@ -21,10 +22,16 @@
     </div>
 
     <div class="content">
-        <p><span class="largecenter">"Thank you <%= fname %>! You have signed up your email, <%= email %> for our notficiation service.</span></p>
+        <p><span class="largecenter">Thank you, <%= fname %>! You have signed up your email, <%= email %> for our notficiation service.</span></p>
         <p>We will only send you development updates, your information WILL NOT be sold to any third party marketing services.</p>
         <p>You can also provide input on what features you would like to see in event genius! Send an email to eventgeniusnotifier@gmail.com with the subject "USER INPUT"</p>
-        <p>Our development team will consider your input, all user input is vaulable!</p>
+        <p>Our development team will consider your input, all user input is valuable!</p>
     </div>
+
+    <script>
+        // call the sendThankyouEmail(firstname, lastname, emailaddy) fnction, using the user's info
+        //console.log("...calling sendThankYouEmail function");
+        //sendThankyouEmail('<%= fname %>','<%= lname %>', '<%=email %>');
+    </script>
   </body>
 </html>
